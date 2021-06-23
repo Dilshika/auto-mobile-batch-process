@@ -26,7 +26,7 @@ export class Vehicle{
     vinNumber:string
 
     @Column()
-    manufacturedDate:Date
+    manufacturedDate:string
 
     @Column()
     ageOfVehicle:number

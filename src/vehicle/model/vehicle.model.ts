@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-export interface VehicleDto{
+export class VehicleDto{
     id:number;
     firstName:string;
     lastName:string;
@@ -7,6 +7,6 @@ export interface VehicleDto{
     carMake:string;
     carModel:string;
     vinNumber:string;
-    manufacturedDate:Date;
+    manufacturedDate:string;
     ageOfVehicle:number;
 }

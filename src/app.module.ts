@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UploadModule } from './upload/upload.module';
 import { FileReadModule } from './file-read/file-read.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Vehicle } from './vehicle/entities/vehicle.entity';
 
 @Module({
   imports: [BullModule.forRoot({
@@ -22,10 +21,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     username:'postgres',
     password:'post#21',
     database:'vehicles',
-    entities:["dist/**/*.entity{.ts,.js}"]
+    entities:[Vehicle],
+    synchronize:true
 
   })],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

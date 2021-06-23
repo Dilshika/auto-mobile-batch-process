@@ -27,6 +27,7 @@ export class FileReadConsumer{
                 const age:number=thisYear.getFullYear()-manufacturedYear;
     
                 //save to db
+                if(isNaN(data[0])){}else{
                 this.vehicleService.saveVehicle({
                     id:data[0],
                     firstName:data[1],
@@ -39,12 +40,13 @@ export class FileReadConsumer{
                     ageOfVehicle:age
     
                 });
+            }
                 
             }).on('end',()=>{
                 console.log('Finished');
             }) 
         } catch (error) {
-            console.log(error)
+            throw new Error(error)
         }
         
     }
